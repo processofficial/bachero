@@ -89,8 +89,11 @@ module.exports = {
 			var embed = new EmbedBuilder()
 				.setTitle("Bannissement")
 				.setAuthor({ name: interaction.user.displayName || interaction.user.username, iconURL: avatar })
-				.setDescription(`Un modérateur du serveur "${escapeMarkdown(interaction.guild.name)}" a frappé ! Raison : ${reason}`)
+				.setDescription(`Vous avez été banni du serveur !`)
 				.setColor(bacheroFunctions.colors.primary)
+				.addFields(
+					{ name : "Raison :", value: reason},
+				)
 			if(elbotStyle) embed.setFooter({ text: "Miskin" })
 			if(elbotStyle) embed.setImage("https://media.tenor.com/BeHgpjAGbJEAAAAd/ban-hammer.gif")
 
@@ -113,7 +116,7 @@ module.exports = {
 		var embed = new EmbedBuilder()
 			.setTitle("Bannissement")
 			.setAuthor({ name: interaction.user.displayName || interaction.user.username, iconURL: avatar })
-			.setDescription("Un modérateur a frappé !")
+			.setDescription("Un membre du serveur a été banni !")
 			.setColor(bacheroFunctions.colors.primary)
 			.addFields(
 				{ name: "Membre banni", value: `${member.discriminator == "0" ? member.username : member.tag} (<@${memberId}>)` },
